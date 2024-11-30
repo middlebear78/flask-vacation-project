@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block title %} home {% endblock title %}
+
+
+{% block content %}
+
+
+<!-- About Start -->
+<div class="container-xxl py-5" id="about-section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="img-fluid position-absolute w-100 h-100" src="{{ url_for('static', filename='images/about.jpg') }}" alt=""
+                         style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                <h1 class="mb-4">Welcome to <span class="text-primary">PassPort the World</span></h1>
+                <p class="mb-4">your ultimate destination for unforgettable travel experiences. We specialize in
+                    creating tailor-made journeys that allow you to explore the world's most beautiful and fascinating
+                    destinations..</p>
+                <p class="mb-4">At Passport the World, we believe that travel should be seamless and enriching. Our team
+                    of experienced travel experts is dedicated to curating the perfect trip for you, whether it's a
+                    romantic getaway, a family vacation, or an adventure of a lifetime.</p>
+                <div class="row gy-2 gx-4 mb-4">
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>First Class Flights</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Handpicked Hotels</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>5 Star Accommodations</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Latest Model Vehicles</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>150 Premium City Tours</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>24/7 Service</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Team Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">Travel Guides</h6>
+            <h1 class="mb-5">Meet Our Guides</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item">
+                    <div class="overflow-hidden team-image-wrapper">
+                        <img class="img-fluid team-image"
+                             src="{{ url_for('static', filename='images/uri-and-shani.jpg') }}"
+                             alt="uri and shani">
+
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Uri and Shani shnetzer</h5>
+                        <small>C.E.O</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item">
+                    <div class="overflow-hidden team-image-wrapper">
+                        <img class="img-fluid team-image" src="{{ url_for('static', filename='images/almog.jpg') }}"
+                             alt="almog">
+
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Almog Moskovitch</h5>
+                        <small>Lead Guide</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item">
+                    <div class="overflow-hidden team-image-wrapper">
+                        <img class="img-fluid team-image" src="{{ url_for('static', filename='images/hernan.jpg') }}"
+                             alt="hernan">
+
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Hernan Kadzor</h5>
+                        <small>Lead guide and Meat chef</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="team-item">
+                    <div class="overflow-hidden team-image-wrapper">
+                        <img class="img-fluid team-image" src="{{ url_for('static', filename='images/elisha.jpg') }}"
+                             alt="elisha">
+
+                    </div>
+                    <div class="position-relative d-flex justify-content-center" style="margin-top: -19px;">
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="text-center p-4">
+                        <h5 class="mb-0">Elisha Soloway</h5>
+                        <small>Lead Host</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+

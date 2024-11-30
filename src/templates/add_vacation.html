@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %} home {% endblock title %}
+
+{% block content %}
+
+<!-- Add vacation Start -->
+
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="add-section">
+    <div class="container">
+
+        <div class="booking p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6">
+                    <h1 class="text-white mb-4">Add a Vacation</h1>
+                    <form method="post" enctype="multipart/form-data"
+                          action="{{ url_for('vacations_view.add_vacation') }}">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-transparent" name="vacation_name"
+                                           placeholder="Vacation Name" required>
+                                    <label>Vacation Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control bg-transparent datetimepicker-input"
+                                           placeholder="Price" id="vacation_price" name="price" min="0" max="10000"
+                                           required/>
+                                    <label for="vacation_price">Price</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control bg-transparent"
+                                           placeholder="Vacation Start Date" name="start_date" required>
+                                    <label>Start Date</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control bg-transparent"
+                                           placeholder="Vacation End Date" name="end_date" >
+                                    <label>End Date</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-transparent" name="country" required>
+                                        {% for country in countries %}
+                                        <option value="{{ country['country_name'] }}">{{ country['country_name'] }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <label>Country</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control bg-transparent" placeholder="Vacation Description"
+                                              name="vacation_description" style="height: 100px" required></textarea>
+                                    <label>Vacation Description</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn btn-outline-light w-100 py-3" type="submit">Add Vacation</button>
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <div class="form-group">
+                        <label for="preview_image" class="text-white"><i class="fas fa-image"></i> Preview
+                            Image:</label>
+                        <input type="file" class="form-control bg-transparent" name="vacation_image" accept="image/*"
+                               id="preview_image" onchange="previewImageAdded(event)" required>
+                    </div>
+
+                    <div id="image_preview" class="image-preview">
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Add vacation Ends-->
+
+{% endblock content %}
+
+
+
+

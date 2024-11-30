@@ -1,0 +1,67 @@
+<!-- Navbar & Hero Start -->
+{% set current_user = session.get("current_user") %}
+
+
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="{{ url_for('home_view.home') }}" class="navbar-brand p-0">
+            <h1 class="text-primary m-0 text-blue"><i class="fa fa-map-marker-alt me-3"></i>Passport
+                The World</h1>
+            <!--             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{{ url_for('home_view.home') }}" class="nav-item nav-link ">Home</a>
+                <a href="{{ url_for('about_view.about') }}" class="nav-item nav-link">About</a>
+                {% if current_user.role_id == admin %}
+                <a href="{{ url_for('vacations_view.list') }}" class="nav-item nav-link">Vacations</a>
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ADMIN</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{{ url_for('vacations_view.list') }}" class="dropdown-item">Manage Vacations</a>
+                        <a href="{{ url_for('vacations_view.add_vacation') }}" class="dropdown-item">Add a Vacation</a>
+
+                    </div>
+                </div>
+                {% else %}
+                <a href="{{ url_for('vacations_view.list') }}" class="nav-item nav-link">Vacations</a>
+                {% endif %}
+
+            </div>
+            {% if current_user %}
+            <a class="nav-link disabled-link current-user" href=""> Hello {{ current_user["first_name"] }} {{
+                current_user["last_name"] }}</a>
+            <a href="{{ url_for('auth_view.logout') }}" class="btn btn-primary rounded-pill py-2 px-4">Logout</a>
+            {% else %}
+            <a href="{{ url_for('auth_view.login') }}" class="btn btn-primary rounded-pill py-2 px-4">Login</a>
+            <a href="" class="nav-item nav-link"> | </a>
+            <a href="{{ url_for('auth_view.register') }}" class="btn btn-primary rounded-pill py-2 px-4">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="row justify-content-center py-5">
+                <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Enjoy Your Vacation With Us</h1>
+                    <p class="fs-4 text-white mb-4 animated slideInDown">Your Gateway to Unforgettable Journeys and
+                        Endless Adventures. Explore, Dream, Discover. </p>
+                    <div class="position-relative w-75 mx-auto animated slideInDown">
+                        <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text"
+                               placeholder="Eg: Thailand">
+                        <button type="button"
+                                class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
+                                style="margin-top: 7px;">Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Navbar & Hero End -->

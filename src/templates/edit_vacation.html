@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block title %} home {% endblock title %}
+
+{% block content %}
+
+<!-- Add vacation Start -->
+
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="edit-section">
+    <div class="container">
+        <div class="booking p-5">
+            <div class="row g-5 align-items-center">
+                <!-- Vacation Details Form Column -->
+                <div class="col-md-6">
+                    <h1 class="text-white mb-4">Edit Vacation - {{ vacation.vacation_id }}</h1>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="hidden" class="form-control bg-transparent" name="vacation_id"
+                                       placeholder="Vacation id" value="{{ vacation.vacation_id }}" required>
+                                <label></label>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-transparent" name="vacation_name"
+                                           placeholder="Vacation Name" value="{{ vacation.vacation_name }}"
+                                           minlength="2" maxlength="100" required>
+                                    <label>Vacation Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control bg-transparent datetimepicker-input"
+                                           placeholder="Price" id="vacation_price" name="price"
+                                           value="{{ vacation.price }}" step="0.01" min="0" max="10000" required/>
+                                    <label for="vacation_price">Price</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control bg-transparent"
+                                           placeholder="Vacation Start Date" name="start_date"
+                                           value="{{ vacation.start_date }}" required>
+                                    <label>Start Date</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control bg-transparent"
+                                           placeholder="Vacation End Date" name="end_date"
+                                           value="{{ vacation.end_date }}" required>
+                                    <label>End Date</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select bg-transparent" name="country" required>
+                                        {% for country in countries %}
+                                        <option value="{{ country['country_name'] }}" {% if country[
+                                        'country_name'] == vacation.country_name %}
+                                        selected {% endif %}>{{ country['country_name'] }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label>Country</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control bg-transparent" placeholder="Vacation Description"
+                                              name="vacation_description" style="height: 100px" required>{{ vacation.vacation_description }}</textarea>
+                                    <label>Vacation Description</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn btn-outline-light w-100 py-3" type="submit">Update Vacation</button>
+                            </div>
+
+                        </div>
+
+                </div>
+
+                <!-- Image Upload Section Column -->
+                <div class="col-md-6 text-center">
+                    <div class="form-group">
+                        <label for="current_image" class="text-white"><i class="fas fa-image"></i> Current
+                            Image:</label>
+                        <div id="current_image_container">
+                            <img id="current_image"
+                                 src="{{ url_for('vacations_view.get_image', image_name=vacation.vacation_img) }}"
+                                 alt="Current Vacation Image" class="img-fluid">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preview_image" class="text-white"><i class="fas fa-image"></i> New Image:</label>
+                        <input type="file" class="form-control bg-transparent" name="vacation_image"
+                               accept="image/*" id="preview_image" onchange="previewImage(event)">
+                    </div>
+
+                    <!-- Hidden Field for Current Image -->
+                    <input type="hidden" name="current_image" value="{{ vacation.vacation_img }}">
+
+                    <!-- Display Filename (for new image) -->
+
+                </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--Add vacation Ends-->
+
+{% endblock content %}

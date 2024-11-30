@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %} home {% endblock title %}
+
+{% block content %}
+
+<!-- Register Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="login-section">
+    <div class="container">
+        <div class="booking p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6 text-white">
+                    <h6 class="text-white text-uppercase">PassPort The World</h6>
+                    <h1 class="text-white mb-4">Welcome</h1>
+                    <p class="mb-4"></p>
+                    <p class="mb-4">Don't have an account?</p>
+                    <a class="btn btn-outline-light py-3 px-5 mt-2" href="{{ url_for('auth_view.register') }}">Register
+                        For An Account</a>
+                </div>
+                <div class="col-md-6">
+                    <h1 class="text-white mb-4">Login To Your Account</h1>
+                    <form method="POST" action="{{ url_for('auth_view.login') }}">
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control bg-transparent" id="email"
+                                           placeholder="Your Email Address" value="{{ credentials.email }}" name="email"
+                                           minlength="2" maxlength="100" required>
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control bg-transparent" id="password"
+                                           placeholder="Your Password" value="{{ credentials.password }}"
+                                           name="password"
+                                           required >
+                                    <label for="email">Password</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn btn-outline-light w-100 py-3" type="submit">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register End -->
+
+
+
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %} home {% endblock title %}
+
+
+{% block content %}
+
+
+<!-- Register Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="register-section">
+    <div class="container">
+        <div class="booking p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6 text-white">
+                    <h6 class="text-white text-uppercase">PassPort The World</h6>
+                    <h1 class="text-white mb-4">Welcome</h1>
+                    <p class="mb-4"></p>
+                    <p class="mb-4">Already have an account?</p>
+                    <a class="btn btn-outline-light py-3 px-5 mt-2" href="{{ url_for('auth_view.login') }}">Sign In</a>
+                </div>
+                <div class="col-md-6">
+                    <h1 class="text-white mb-4">Register For An Account</h1>
+                    <form method="post" action="{{ url_for('auth_view.register') }}">
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-transparent"
+                                           id="first_name"
+                                           placeholder="Your first Name"
+                                           name="first_name" required>
+                                    <label for="first_name">First Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control bg-transparent"
+                                           id="last_name"
+                                           placeholder="Your last Name"
+                                           name="last_name" required>
+                                    <label for="last_name">Last Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control bg-transparent" id="email"
+                                           placeholder="Your Email" name="email" required>
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control bg-transparent" id="password"
+
+                                           placeholder="Your Password" minlength="4" name="password" required>
+                                    <label>Password</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn btn-outline-light w-100 py-3" type="submit">Sign up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- register Start -->
+
+
+{% endblock content %}
